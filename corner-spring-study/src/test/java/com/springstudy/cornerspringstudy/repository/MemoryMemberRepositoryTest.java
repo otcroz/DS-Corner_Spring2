@@ -1,9 +1,11 @@
 package com.springstudy.cornerspringstudy.repository;
 
 import com.springstudy.cornerspringstudy.domain.Member;
+import com.springstudy.cornerspringstudy.service.MemberService;
 import org.assertj.core.api.Assertions;
 import org.assertj.core.api.OptionalAssert;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -12,7 +14,15 @@ import static org.assertj.core.api.Assertions.*;
 
 class MemoryMemberRepositoryTest {
 
-    MemoryMemberRepository repository = new MemoryMemberRepository();
+    MemberService memberService;
+    MemoryMemberRepository repository;
+
+    // 동작하기 전에 실행
+    @BeforeEach
+    public void beforeEach(){
+        repository = new MemoryMemberRepository();
+        memberService = new MemberService(repository);
+    }
 
     // ** 중요: test가 끝나면 data를 clear 해줘야 한다.
     @AfterEach
