@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"> <!--템플릿 엔진 사용-->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <!--name에 값이 있을 때, p 태그에 있는 내용 대신에 값이 치환된다.-->
+  <p th:text="'hello ' + ${name}" >hello! empty</p>
+</body>
+</html>
