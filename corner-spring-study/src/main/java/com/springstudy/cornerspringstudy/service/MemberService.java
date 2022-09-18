@@ -3,14 +3,23 @@ package com.springstudy.cornerspringstudy.service;
 import com.springstudy.cornerspringstudy.domain.Member;
 import com.springstudy.cornerspringstudy.repository.MemberRepository;
 import com.springstudy.cornerspringstudy.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
+// @Component: @Service에 @Component가 등록되어 있다.
+// @Repository와 Controller도 마찬가지
 public class MemberService { // cmd + shift + t => test
 
     private final MemberRepository memberRepository;
 
+    // MemberService를 생성할 때, 스프링 컨테이너에 등록하면서 MemberRepository를 넣어준다.
+    // 구현체인 MemoryMemberRepository를 넣어준다.
+    @Autowired
     public MemberService(MemberRepository memberRepository){
         this.memberRepository = memberRepository;
     }
