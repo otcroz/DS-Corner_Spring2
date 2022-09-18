@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+
 // @Component: @Service에 @Component가 등록되어 있다.
 // @Repository와 Controller도 마찬가지
 // 스프링이 서비스임을 인식하고 컨테이너에서 서비스 등록
@@ -21,7 +21,8 @@ public class MemberService { // cmd + shift + t => test
 
     // MemberService를 생성할 때, 스프링 컨테이너에 등록하면서 MemberRepository를 넣어준다.
     // 구현체인 MemoryMemberRepository를 넣어준다.
-    @Autowired
+
+    // 생성자 주입 방식
     public MemberService(MemberRepository memberRepository){
         this.memberRepository = memberRepository;
     }
